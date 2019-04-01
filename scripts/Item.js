@@ -4,7 +4,7 @@ const Item = (function () {
 
     function validateName (name) {
       if (!name) {
-        throw 'Name does not exist.'
+        throw new Error ('Name does not exist.');
       };
     }
 

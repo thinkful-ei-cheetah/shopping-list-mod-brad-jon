@@ -11,5 +11,4 @@ $(document).ready(function() {
 });
 
 
-console.log(Item);
-console.log(foo);
+
