@@ -31,12 +31,11 @@ const store = (function () {
           foundItem.checked = !foundItem.checked;
         }
         
-        function findAndUpdateName (id) {
+        function findAndUpdateName (id, newName) {
           try {
-            Item.validateName(itemName);
+            Item.validateName(newName);
             const item = store.items.find(item => item.id === id);
-            item.name = itemName;
-            render();
+            item.name = newName;
           } catch (e) {
             console.log(e)
           }
