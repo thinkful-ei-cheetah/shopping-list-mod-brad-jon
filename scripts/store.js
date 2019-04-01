@@ -21,7 +21,6 @@ const store = (function () {
           try {
             Item.validateName(name);
             this.items.push( Item.create(name) );
-            render();
           } catch (e) {
             console.log(e)
           }
@@ -31,7 +30,7 @@ const store = (function () {
           const foundItem = store.items.find(item => item.id === id);
           foundItem.checked = !foundItem.checked;
         }
-
+        
         function findAndUpdateName (id) {
           try {
             Item.validateName(itemName);
