@@ -12,6 +12,52 @@ const store = (function () {
         const hideCheckedItems= false;
         const searchTerm = '';
 
-      return { items, hideCheckedItems, searchTerm  }
+        function findById (id) {
+          const item = store.items.find(item => item.id === id);
+          return item
+        }
+
+        function addItem (name) {
+          try {
+            Item.validateName(name);
+            this.items.push( Item.create(name) );
+            render();
+          } catch (e) {
+            console.log(e)
+          }
+        }
+
+        function findAndToggleChecked (id) {
+          const foundItem = store.items.find(item => item.id === id);
+          foundItem.checked = !foundItem.checked;
+        }
+
+        function findAndUpdateName (id) {
+          try {
+            Item.validateName(itemName);
+            const item = store.items.find(item => item.id === id);
+            item.name = itemName;
+            render();
+          } catch (e) {
+            console.log(e)
+          }
+        }
+
+        function findAndDelete (id) {
+          const index = store.items.findIndex(item => item.id === id);
+          store.items.splice(index, 1);
+        }
+
+
+      return {
+        items,
+        hideCheckedItems, 
+        searchTerm, 
+        findById, 
+        addItem, 
+        findAndToggleChecked,
+        findAndUpdateName,
+        findAndDelete
+      }
 
 }() );
