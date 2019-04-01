@@ -54,7 +54,7 @@ const store = (function () {
   }
 
   function setSearchTerm (val) {
-    store.searchTearm = val;
+    store.searchTerm = val;
   }
 
 
